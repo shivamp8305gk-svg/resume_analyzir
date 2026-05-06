@@ -1,0 +1,59 @@
+John Doe
+Software Engineer | Full Stack Developer
+
+Contact
+Email: john.doe@example.com
+Phone: +91-9876543210
+Location: Bangalore, India
+LinkedIn: linkedin.com/in/johndoe
+GitHub: github.com/johndoe
+
+Professional Summary
+Results-driven Full Stack Developer with 3+ years of experience building scalable web applications using React, Node.js, and MongoDB. Passionate about clean code, performance optimization, and delivering great user experiences.
+
+Technical Skills
+Programming Languages: JavaScript, TypeScript, Python, Java
+Frontend: React.js, Next.js, HTML5, CSS3, TailwindCSS, Redux
+Backend: Node.js, Express.js, REST API, GraphQL
+Databases: MongoDB, PostgreSQL, MySQL, Redis
+Cloud & DevOps: AWS, Docker, Kubernetes, GitHub Actions, CI/CD
+Tools: Git, Jira, Postman, Figma, VS Code
+
+Work Experience
+
+Software Engineer — TechCorp Solutions
+Jan 2022 – Present | Bangalore, India
+- Developed and maintained RESTful APIs using Node.js and Express, serving 50K+ daily users
+- Built responsive React.js dashboards reducing data retrieval time by 35%
+- Implemented CI/CD pipelines with GitHub Actions, reducing deployment time by 40%
+- Led migration from monolith to microservices architecture, improving system scalability
+- Mentored 3 junior developers and conducted code reviews
+
+Junior Developer — StartupXYZ
+Jun 2021 – Dec 2021 | Remote
+- Developed full-stack features using React, Node.js, and MongoDB
+- Optimized database queries resulting in 25% performance improvement
+- Integrated third-party APIs (Stripe, Twilio, Google Maps)
+- Wrote unit tests with Jest, achieving 85% code coverage
+
+Education
+
+Bachelor of Technology — Computer Science
+XYZ University | 2017 – 2021 | GPA: 8.7/10
+
+Projects
+
+Resume Analyzer (2024)
+- Full-stack web app for analyzing resumes against job descriptions
+- Tech Stack: Next.js, Node.js, Express.js, MongoDB, NLP
+- Features: ATS scoring, skill detection, keyword matching, PDF export
+
+E-Commerce Platform (2023)
+- Complete e-commerce solution with payment integration
+- Tech Stack: React, Node.js, Stripe, PostgreSQL, Redis
+- Handled 1000+ concurrent users with Redis caching
+
+Certifications
+AWS Certified Developer – Associate | Amazon Web Services | 2023
+MongoDB Certified Developer | MongoDB Inc. | 2022
+Google Analytics Certified | Google | 2022
