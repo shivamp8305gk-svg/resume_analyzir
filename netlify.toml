@@ -1,11 +1,23 @@
 [build]
-  base = "frontend"
-  command = "npm install && npm run build"
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+  base = "backend"
+  command = "npm install"
+  functions = "netlify/functions"
+  publish = "public"
 
 [build.environment]
   NODE_VERSION = "20"
   NODE_ENV = "production"
+  SECRETS_SCAN_OMIT_PATHS = "backend/.env,backend/.env.example,.env,.env.example"
+
+# /api/* → Express serverless function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api"
+  status = 200
+  force = true
+
+# All other routes → Express serverless function
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api"
+  status = 200
