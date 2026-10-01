@@ -12,21 +12,14 @@ const Analysis = require('../models/Analysis');
 const { optionalAuth } = require('../middleware/authMiddleware');
 const { isConnected } = require('../config/db');
 
-// Detect serverless environment:
-// - NETLIFY=true is set by Netlify at function RUNTIME (reliable)
-// - On Windows local dev, /tmp doesn't exist so use local uploads/
-const isServerless = process.env.NETLIFY === 'true' || process.env.NETLIFY === '1';
+// Serverless-safe uploads directory:
+// /tmp always exists on Linux serverless (Netlify, Vercel, AWS Lambda)
+// /tmp does NOT exist on Windows local dev → use local uploads/ folder
+const localUploadsDir = path.join(__dirname, '../uploads');
+const uploadsDir = fs.existsSync('/tmp') ? '/tmp' : localUploadsDir;
 
-let uploadsDir;
-if (isServerless) {
-  // Netlify functions: only /tmp is writable
-  uploadsDir = '/tmp';
-} else {
-  // Local development
-  uploadsDir = path.join(__dirname, '../uploads');
-  if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
-  }
+if (uploadsDir === localUploadsDir && !fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
 // Multer config
