@@ -11,7 +11,7 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// CORS - allow both local dev and Vercel frontend
+// CORS - allow both local dev and deployed frontend (Vercel / Netlify)
 const allowedOrigins = [
   'http://localhost:3000',
   'http://127.0.0.1:3000',
@@ -22,7 +22,11 @@ app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (mobile apps, curl, Postman)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin) || origin.endsWith('.vercel.app')) {
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      origin.endsWith('.netlify.app')
+    ) {
       return callback(null, true);
     }
     return callback(new Error('Not allowed by CORS'));

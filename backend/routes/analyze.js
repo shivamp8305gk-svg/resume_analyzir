@@ -12,9 +12,14 @@ const Analysis = require('../models/Analysis');
 const { optionalAuth } = require('../middleware/authMiddleware');
 const { isConnected } = require('../config/db');
 
-// Ensure uploads directory exists
-const uploadsDir = path.join(__dirname, '../uploads');
-if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
+// Use /tmp for serverless (Netlify/Vercel), fallback to local uploads dir
+const uploadsDir = process.env.NODE_ENV === 'production'
+  ? '/tmp'
+  : path.join(__dirname, '../uploads');
+
+if (uploadsDir !== '/tmp' && !fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
 
 // Multer config
 const storage = multer.diskStorage({

@@ -44,6 +44,12 @@ Thumbs.db
 .idea/
 
 # ===========================
-# Vercel
+# Vercel / Netlify
 # ===========================
 .vercel
+.netlify
+
+# ===========================
+# Large OCR data files
+# ===========================
+eng.traineddata

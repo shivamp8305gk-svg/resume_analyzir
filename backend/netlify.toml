@@ -1,0 +1,22 @@
+[build]
+  command = "npm install"
+  functions = "netlify/functions"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "20"
+  NODE_ENV = "production"
+  SECRETS_SCAN_OMIT_PATHS = ".env,.env.example"
+
+# All /api/* → serverless function
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api"
+  status = 200
+  force = true
+
+# All other routes → serverless function
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api"
+  status = 200
